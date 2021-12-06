@@ -61,6 +61,21 @@ class ImageSection extends StatelessWidget {
             width: deviceWidth,
             height: deviceHeight,
             fit: BoxFit.cover,
+            errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+              return const Center(
+                  child: Icon(
+                Icons.error,
+                color: Colors.red,
+              ));
+            },
+            loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              }
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            },
           ),
         ),
       ],

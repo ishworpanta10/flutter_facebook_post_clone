@@ -16,6 +16,7 @@ class HomePage extends StatelessWidget {
       appBar: customAppBar(),
       body: SafeArea(
         child: ListView.separated(
+          physics: const BouncingScrollPhysics(),
           separatorBuilder: (context, index) => const Divider(
             thickness: 14,
             color: bgColor,
